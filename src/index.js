@@ -14,7 +14,13 @@ class CountdownTimer {
     };   
   }
 
-  
+  renderCounterOnPage() {
+    setInterval(() => {
+    const currentTime = Date.now(); 
+    const deltaTime = this.targetDate - currentTime;
+    this.renderTime(parseTime(deltaTime));
+    }, 1000);
+  }
 
   renderTime({ days, hours, mins, secs }) {
     this.refs.$days.innerHTML = days;
